@@ -92,7 +92,13 @@ public class ErfassungWohnungListener implements ActionListener{
     }
 
     public void clearWohnungGUI() {
-
+        window.tfMiete.setText("");
+        window.tfNebenkosten.setText("");
+        window.tfWohnflaeche.setText("");
+        window.cbAnzahlRaeume.getSelectedIndex(0);
+        window.tfStockwerk.setText("");
+        window.taBemerkungen.setText("");
+        window.cbAnschrift.setSelectedIndex(0);
     }
 
     public void clearAnschriftGUI() {
