@@ -78,10 +78,41 @@ public class Datenbank {
 
         return anschriften;
     }
-    public ArrayList<Wohnung> getWohnungen(int vermietet){
-    ArrayList<Wohnung> wohnungen = new ArrayList<Wohnung>();
+    public static ArrayList<Wohnung> getWohnungen(int vermietet){
+    ArrayList<Wohnung> wohnungsListe = new ArrayList<Wohnung>();
     // Alle Wohungen inkl. anschrift aus der DB holen und in die ArrayList speichern
+        try {
+            String conString = "jdbc:mysql://localhost/wohnungsvermietung";
+            String user = "root";
+            String passwort = "";
+            Connection connection = DriverManager.getConnection(conString, user, passwort);
+            Statement statement = connection.createStatement();
+            String sqlString = "SELECT * FROM wohnung JOIN anschrift ON wohnung.anschrift_id = anschrift.id;";
+            ResultSet rs = statement.executeQuery(sqlString);
+            while(rs.next()) {
+                Wohnung wohnung = new Wohnung();
+              wohnungsListe.add(wohnung);
+              wohnung.setStockwerk(rs.getString(5));
+              wohnung.setAnzRaeume(Integer.parseInt(rs.getString(7)));
+              wohnung.setBemerkungen(rs.getString(6));
+              wohnung.setWohnflaeche(Double.parseDouble(rs.getString(8)));
+              wohnung.setMiete(Double.parseDouble(rs.getString(9)));
+              wohnung.setNebenkosten(Double.parseDouble(rs.getString(10)));
+              wohnung.setId(Integer.parseInt(rs.getString(11)));
 
-        return wohnungen;
+              Anschrift anschrift = new Anschrift();
+              anschrift.setStrasse(rs.getString(1));
+              anschrift.setHausnr(rs.getString(2));
+              anschrift.setPlz(rs.getString(3));
+              anschrift.setOrt(rs.getString(4));
+            }
+            connection.close();
+        }catch(Exception e) {
+            e.printStackTrace();
+        }
+
+        return wohnungsListe;
     }
-}
+
+    }
+
