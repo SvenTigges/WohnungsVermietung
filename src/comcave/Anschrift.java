@@ -5,8 +5,15 @@ public class Anschrift {
     private String hausnr;
     private String plz;
     private String ort;
+    private int id;
 
+    public void setId(int id) {
+        this.id = id;
+    }
 
+    public int getId() {
+        return id;
+    }
 
     public Anschrift() {
     }
