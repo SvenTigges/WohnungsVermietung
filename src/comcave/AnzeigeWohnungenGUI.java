@@ -40,7 +40,7 @@ public class AnzeigeWohnungenGUI extends JFrame {
         status.addItemListener(listener);
 
         // Datenschreiben erzeugen
-        ArrayList<Wohnung> wohnungsListe = Datenbank.getWohnungen(int vermietet);
+        ArrayList<Wohnung> wohnungsListe = Datenbank.getWohnungen();
         // Vector für Überschrift
             Vector<String> kopf = new Vector<String>();
             kopf.add("Strasse");
@@ -67,7 +67,15 @@ public class AnzeigeWohnungenGUI extends JFrame {
                 zeile.add(String.valueOf(wohnung.getMiete()));
                 zeile.add(String.valueOf(wohnung.getNebenkosten()));
                 zeile.add(String.valueOf(wohnung.getId()));
+
+                Anschrift anschrift = new Anschrift();
+
+
                 zeile.add(anschrift.getStrasse());
+                zeile.add(anschrift.getHausnr());
+                zeile.add(anschrift.getPlz());
+                zeile.add(anschrift.getPlz());
+
 
             }
             model = new DefaultTableModel(daten, kopf);
