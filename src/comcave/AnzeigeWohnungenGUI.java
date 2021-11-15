@@ -1,10 +1,12 @@
 package comcave;
 
-import javax.swing.*;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import java.awt.*;
 
-public class AnzeigeWohungenGUI extends JFrame{
+public class AnzeigeWohnungenGUI extends JFrame {
 
     JComboBox status;
     JScrollPane scrollpane;
@@ -12,30 +14,29 @@ public class AnzeigeWohungenGUI extends JFrame{
     DefaultTableModel model;
     AnzeigeWohnungenListener listener;
 
-    public AnzeigeWohungenGUI() {
+    public AnzeigeWohnungenGUI() {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(1000, 800);
         setLayout(null);
         setTitle("Wohnungsliste");
 
-
         status = new JComboBox();
-        scrollpane = new JScrollPane(tabelle);
         model = new DefaultTableModel();
         tabelle = new JTable(model);
-        listener = new AnzeigeWohnungenListener();
+        scrollpane = new JScrollPane(tabelle);
 
         add(status);
         add(scrollpane);
 
-        status.setBounds(20,20,150,25);
-        scrollpane.setBounds(20,55,960,700);
+        status.setBounds(20, 20, 150, 25);
+        scrollpane.setBounds(20, 55, 950, 700);
 
-        status.addItem("nicht Vermietet");
-        status.addItem("Vermietet");
+        status.addItem("nicht vermietet");
+        status.addItem("vermietet");
 
-
+        listener = new AnzeigeWohnungenListener(this);
         status.addItemListener(listener);
 
     }
+
 }

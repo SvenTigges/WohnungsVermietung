@@ -95,7 +95,7 @@ public class ErfassungWohnungListener implements ActionListener{
         window.tfMiete.setText("");
         window.tfNebenkosten.setText("");
         window.tfWohnflaeche.setText("");
-        window.cbAnzahlRaeume.getSelectedIndex(0);
+        window.cbAnzahlRaeume.setSelectedIndex(0);
         window.tfStockwerk.setText("");
         window.taBemerkungen.setText("");
         window.cbAnschrift.setSelectedIndex(0);

@@ -78,5 +78,10 @@ public class Datenbank {
 
         return anschriften;
     }
+    public ArrayList<Wohnung> getWohnungen(int vermietet){
+    ArrayList<Wohnung> wohnungen = new ArrayList<Wohnung>();
+    // Alle Wohungen inkl. anschrift aus der DB holen und in die ArrayList speichern
 
+        return wohnungen;
+    }
 }
