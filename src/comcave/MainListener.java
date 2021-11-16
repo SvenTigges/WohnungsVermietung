@@ -14,9 +14,9 @@ public class MainListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
     if(e.getSource().equals(window.menuItemWohnungNeu)) {
-        new ErfassungWohnungGUI().setVisible(true);
+        ErfassungWohnungGUI().getInstance().setVisible(true);
     }else if(e.getSource().equals(window.menuItemWohnungenAnzeigen)){
-        new AnzeigeWohnungenGUI().setVisible(true);
+        AnzeigeWohnungenGUI().getInstance().setVisible(true);
     }
 
     }
