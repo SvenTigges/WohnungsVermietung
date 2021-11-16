@@ -16,7 +16,15 @@ public class AnzeigeWohnungenGUI extends JFrame {
     DefaultTableModel model;
     AnzeigeWohnungenListener listener;
 
-    public AnzeigeWohnungenGUI() {
+    private static AnzeigeWohnungenGUI anzeigeWohnungenGUI = null;
+    public static AnzeigeWohnungenGUI getInstance() {
+        if(anzeigeWohnungenGUI == null) {
+            anzeigeWohnungenGUI = new AnzeigeWohnungenGUI();
+        }
+        return anzeigeWohnungenGUI;
+    }
+
+    private AnzeigeWohnungenGUI() {
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setSize(1000, 800);
         setLayout(null);

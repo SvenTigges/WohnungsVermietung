@@ -45,8 +45,16 @@ public class ErfassungWohnungGUI extends JFrame{
     JTextField tfOrt;
     JButton btnAnschriftSpeichern;
 
+    // Singleton Pattern
+    private static ErfassungWohnungGUI erfassungWohnungGUI = null;
+    public static ErfassungWohnungGUI getInstance() {
+        if(erfassungWohnungGUI == null) {
+            erfassungWohnungGUI = new ErfassungWohnungGUI();
+        }
+        return erfassungWohnungGUI;
+    }
 
-    public ErfassungWohnungGUI() {
+    private ErfassungWohnungGUI() {
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setSize(1000, 800);
         setLayout(null);

@@ -145,5 +145,9 @@ public class Datenbank {
         return wohnungen;
         }
 
+        public boolean mieterSoeicher(){
+
+        }
+
     }
 

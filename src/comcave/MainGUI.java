@@ -16,6 +16,8 @@ public class MainGUI extends JFrame {
     JMenu menuMieter;
     JMenuItem menuItemWohnungNeu;
     JMenuItem menuItemWohnungenAnzeigen;
+    JMenuItem menuItemMieterNeu;
+    JMenuItem menuItemMieterAnzeigen;
     JPanel contentPane;
     MainListener listener;
 
@@ -36,11 +38,17 @@ public class MainGUI extends JFrame {
         menuItemWohnungNeu = new JMenuItem("Neu");
         menuItemWohnungenAnzeigen = new JMenuItem("Anzeigen");
 
+        menuItemMieterNeu = new JMenuItem("Neu");
+        menuItemMieterAnzeigen = new JMenuItem("Anzeigen");
+
         menuBar.add(menuWohnungen);
         menuBar.add(menuMieter);
 
         menuWohnungen.add(menuItemWohnungNeu);
         menuWohnungen.add(menuItemWohnungenAnzeigen);
+
+        menuMieter.add(menuItemMieterNeu);
+        menuMieter.add(menuItemMieterAnzeigen);
 
         contentPane.setBackground(Color.white);
 
@@ -52,5 +60,7 @@ public class MainGUI extends JFrame {
         listener = new MainListener(this);
         menuItemWohnungenAnzeigen.addActionListener(listener);
         menuItemWohnungNeu.addActionListener(listener);
+        menuItemMieterNeu.addActionListener(listener);
+        menuItemMieterAnzeigen.addActionListener(listener);
     }
 }
