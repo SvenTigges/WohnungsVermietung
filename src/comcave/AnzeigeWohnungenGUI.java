@@ -17,7 +17,7 @@ public class AnzeigeWohnungenGUI extends JFrame {
     AnzeigeWohnungenListener listener;
 
     public AnzeigeWohnungenGUI() {
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setSize(1000, 800);
         setLayout(null);
         setTitle("Wohnungsliste");

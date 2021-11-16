@@ -47,7 +47,7 @@ public class ErfassungWohnungGUI extends JFrame{
 
 
     public ErfassungWohnungGUI() {
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setSize(1000, 800);
         setLayout(null);
         setTitle("Neue Wohnung erfassen");
