@@ -2,8 +2,6 @@ package comcave;
 import java.sql.*;
 import java.util.ArrayList;
 
-import javax.swing.JOptionPane;
-
 public class Datenbank {
 
     public boolean wohnungSpeichern(Wohnung wohnung) {
@@ -78,8 +76,8 @@ public class Datenbank {
 
         return anschriften;
     }
-    public static ArrayList<Wohnung> getWohnungen(){
-    ArrayList<Wohnung> wohnungsListe = new ArrayList<Wohnung>();
+    public static ArrayList<Wohnung> getWohnungen(int vermietet){
+    ArrayList<Wohnung> wohnungen = new ArrayList<Wohnung>();
     // Alle Wohungen inkl. anschrift aus der DB holen und in die ArrayList speichern
         try {
             String conString = "jdbc:mysql://localhost/wohnungsvermietung";
@@ -87,32 +85,43 @@ public class Datenbank {
             String passwort = "";
             Connection connection = DriverManager.getConnection(conString, user, passwort);
             Statement statement = connection.createStatement();
-            String sqlString = "SELECT * FROM wohnung JOIN anschrift ON wohnung.anschrift_id = anschrift.id;";
+            String sqlString = "SELECT wohnung.id, stockwerk, bemerkungen, anzraeume, wohnflaeche,"
+                    + " miete, nebenkosten, vermietet,"
+                    + " anschrift.id, strasse, hausnr, plz, ort"
+                    + " FROM wohnung JOIN anschrift ON wohnung.anschrift_id = anschrift.id "
+                    + "WHERE vermietet = " + vermietet
+                    + " ORDER BY plz, strasse, hausnr;";
             ResultSet rs = statement.executeQuery(sqlString);
             while(rs.next()) {
-                Wohnung wohnung = new Wohnung();
-              wohnungsListe.add(wohnung);
-              wohnung.setStockwerk(rs.getString(5));
-              wohnung.setAnzRaeume(Integer.parseInt(rs.getString(7)));
-              wohnung.setBemerkungen(rs.getString(6));
-              wohnung.setWohnflaeche(Double.parseDouble(rs.getString(8)));
-              wohnung.setMiete(Double.parseDouble(rs.getString(9)));
-              wohnung.setNebenkosten(Double.parseDouble(rs.getString(10)));
-              wohnung.setId(Integer.parseInt(rs.getString(11)));
+            Wohnung wohnung = new Wohnung();
+              wohnungen.add(wohnung);
+              wohnung.setId(rs.getInt(1));
+              wohnung.setStockwerk(rs.getString(2));
+              wohnung.setBemerkungen(rs.getString(3));
+              wohnung.setAnzRaeume(rs.getInt(4));
+              wohnung.setWohnflaeche(rs.getDouble(5));
+              wohnung.setMiete(rs.getDouble(6));
+              wohnung.setNebenkosten(rs.getDouble(7));
 
-              Anschrift anschrift = new Anschrift();
-              anschrift.setStrasse(rs.getString(1));
-              anschrift.setHausnr(rs.getString(2));
-              anschrift.setPlz(rs.getString(3));
-              anschrift.setOrt(rs.getString(4));
+            Anschrift anschrift = new Anschrift();
+              wohnung.setAnschrift(anschrift);
+              if(rs.getInt(8) == 0)
+                  wohnung.setVermietet(false);
+              else
+                  wohnung.setVermietet(true);
+              anschrift.setId(rs.getInt(9));
+              anschrift.setStrasse(rs.getString(10));
+              anschrift.setHausnr(rs.getString(11));
+              anschrift.setPlz(Integer.toString(rs.getInt(12)));
+              anschrift.setOrt(rs.getString(13));
+
             }
             connection.close();
         }catch(Exception e) {
             e.printStackTrace();
         }
-
-        return wohnungsListe;
-    }
+        return wohnungen;
+        }
 
     }
 

@@ -39,47 +39,7 @@ public class AnzeigeWohnungenGUI extends JFrame {
         listener = new AnzeigeWohnungenListener(this);
         status.addItemListener(listener);
 
-        // Datenschreiben erzeugen
-        ArrayList<Wohnung> wohnungsListe = Datenbank.getWohnungen();
-        // Vector für Überschrift
-            Vector<String> kopf = new Vector<String>();
-            kopf.add("Strasse");
-            kopf.add("hausnr");
-            kopf.add("plz");
-            kopf.add("ort");
-            kopf.add("Stockwerk");
-            kopf.add("Bemerkungen");
-            kopf.add("AnzhalRäume");
-            kopf.add("Wohnflaeche");
-            kopf.add("Miete");
-            kopf.add("Nebenkosten");
-            kopf.add("id");
-
-            Vector<Vector<String>> daten = new Vector<Vector<String>>();
-
-            for (Wohnung wohnung : wohnungsListe) {
-                Vector<String> zeile = new Vector<String>();
-
-                zeile.add(wohnung.getStockwerk());
-                zeile.add(wohnung.getBemerkungen());
-                zeile.add(String.valueOf(wohnung.getAnzRaeume()));
-                zeile.add(String.valueOf(wohnung.getWohnflaeche()));
-                zeile.add(String.valueOf(wohnung.getMiete()));
-                zeile.add(String.valueOf(wohnung.getNebenkosten()));
-                zeile.add(String.valueOf(wohnung.getId()));
-
-                Anschrift anschrift = new Anschrift();
-
-
-                zeile.add(anschrift.getStrasse());
-                zeile.add(anschrift.getHausnr());
-                zeile.add(anschrift.getPlz());
-                zeile.add(anschrift.getPlz());
-
-
-            }
-            model = new DefaultTableModel(daten, kopf);
-
+        listener.fillJTable();
         }
 
     }
