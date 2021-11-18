@@ -1,41 +1,44 @@
 package comcave;
 
 public class BankKonto {
-    private String bank;
-    private String iban;
-    private String bic;
+	private String iban;
+	private String bic;
+	private String bank;
+	
+	public BankKonto() {
+		// TODO Auto-generated constructor stub
+	}
 
-    public BankKonto(){
+	public BankKonto(String iban, String bic, String bank) {
+		super();
+		this.iban = iban;
+		this.bic = bic;
+		this.bank = bank;
+	}
 
-    }
+	public String getIban() {
+		return iban;
+	}
 
-    public BankKonto(String bank, String iban, String bic) {
-        this.bank = bank;
-        this.iban = iban;
-        this.bic = bic;
-    }
+	public void setIban(String iban) {
+		this.iban = iban;
+	}
 
-    public void setBank(String bank) {
-        this.bank = bank;
-    }
+	public String getBic() {
+		return bic;
+	}
 
-    public void setIban(String iban) {
-        this.iban = iban;
-    }
+	public void setBic(String bic) {
+		this.bic = bic;
+	}
 
-    public void setBic(String bic) {
-        this.bic = bic;
-    }
+	public String getBank() {
+		return bank;
+	}
 
-    public String getBank() {
-        return bank;
-    }
-
-    public String getIban() {
-        return iban;
-    }
-
-    public String getBic() {
-        return bic;
-    }
+	public void setBank(String bank) {
+		this.bank = bank;
+	}
+	
+	
 }

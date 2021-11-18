@@ -1,104 +1,104 @@
 package comcave;
 
 public class Wohnung {
-    private Anschrift anschrift;
-    private String stockwerk;
-    private String bemerkungen;
-    private int anzRaeume;
-    private double wohnflaeche;
-    private double miete;
-    private double nebenkosten;
-    private boolean vermietet;
-    private int id;
+	private Anschrift anschrift;
+	private String stockwerk;
+	private String bemerkungen;
+	private int anzRaeume;
+	private double wohnflaeche;
+	private double miete;
+	private double nebenkosten;
+	private boolean vermietet;
+	private int id;
+	
+	public int getId() {
+		return id;
+	}
 
-    public int getId() {
-        return id;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public Wohnung() {
+		
+	}
+	
+	public Wohnung(Anschrift anschrift, String stockwerk, String bemerkungen, int anzRaeume, double wohnflaeche,
+			double miete, double nebenkosten, boolean vermietet) {
+		super();
+		this.anschrift = anschrift;
+		this.stockwerk = stockwerk;
+		this.bemerkungen = bemerkungen;
+		this.anzRaeume = anzRaeume;
+		this.wohnflaeche = wohnflaeche;
+		this.miete = miete;
+		this.nebenkosten = nebenkosten;
+		this.vermietet = vermietet;
+	}
 
-    public Wohnung() {
+	public Anschrift getAnschrift() {
+		return anschrift;
+	}
 
-    }
+	public void setAnschrift(Anschrift anschrift) {
+		this.anschrift = anschrift;
+	}
 
-    public Wohnung(Anschrift anschrift, String stockwerk, String bemerkungen, int anzRaeume, double wohnflaeche,
-                   double miete, double nebenkosten, boolean vermietet) {
-        super();
-        this.anschrift = anschrift;
-        this.stockwerk = stockwerk;
-        this.bemerkungen = bemerkungen;
-        this.anzRaeume = anzRaeume;
-        this.wohnflaeche = wohnflaeche;
-        this.miete = miete;
-        this.nebenkosten = nebenkosten;
-        this.vermietet = vermietet;
-    }
+	public String getStockwerk() {
+		return stockwerk;
+	}
 
-    public Anschrift getAnschrift() {
-        return anschrift;
-    }
+	public void setStockwerk(String stockwerk) {
+		this.stockwerk = stockwerk;
+	}
 
-    public void setAnschrift(Anschrift anschrift) {
-        this.anschrift = anschrift;
-    }
+	public String getBemerkungen() {
+		return bemerkungen;
+	}
 
-    public String getStockwerk() {
-        return stockwerk;
-    }
+	public void setBemerkungen(String bemerkungen) {
+		this.bemerkungen = bemerkungen;
+	}
 
-    public void setStockwerk(String stockwerk) {
-        this.stockwerk = stockwerk;
-    }
+	public int getAnzRaeume() {
+		return anzRaeume;
+	}
 
-    public String getBemerkungen() {
-        return bemerkungen;
-    }
+	public void setAnzRaeume(int anzRaeume) {
+		this.anzRaeume = anzRaeume;
+	}
 
-    public void setBemerkungen(String bemerkungen) {
-        this.bemerkungen = bemerkungen;
-    }
+	public double getWohnflaeche() {
+		return wohnflaeche;
+	}
 
-    public int getAnzRaeume() {
-        return anzRaeume;
-    }
+	public void setWohnflaeche(double wohnflaeche) {
+		this.wohnflaeche = wohnflaeche;
+	}
 
-    public void setAnzRaeume(int anzRaeume) {
-        this.anzRaeume = anzRaeume;
-    }
+	public double getMiete() {
+		return miete;
+	}
 
-    public double getWohnflaeche() {
-        return wohnflaeche;
-    }
+	public void setMiete(double miete) {
+		this.miete = miete;
+	}
 
-    public void setWohnflaeche(double wohnflaeche) {
-        this.wohnflaeche = wohnflaeche;
-    }
+	public double getNebenkosten() {
+		return nebenkosten;
+	}
 
-    public double getMiete() {
-        return miete;
-    }
+	public void setNebenkosten(double nebenkosten) {
+		this.nebenkosten = nebenkosten;
+	}
 
-    public void setMiete(double miete) {
-        this.miete = miete;
-    }
+	public boolean isVermietet() {
+		return vermietet;
+	}
 
-    public double getNebenkosten() {
-        return nebenkosten;
-    }
-
-    public void setNebenkosten(double nebenkosten) {
-        this.nebenkosten = nebenkosten;
-    }
-
-    public boolean isVermietet() {
-        return vermietet;
-    }
-
-    public void setVermietet(boolean vermietet) {
-        this.vermietet = vermietet;
-    }
-
-
+	public void setVermietet(boolean vermietet) {
+		this.vermietet = vermietet;
+	}
+	
+	
 }

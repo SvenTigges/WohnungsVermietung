@@ -1,61 +1,61 @@
 package comcave;
 
 public class Anschrift {
-    private String strasse;
-    private String hausnr;
-    private String plz;
-    private String ort;
-    private int id;
+	private String strasse;
+	private String hausnr;
+	private String plz;
+	private String ort;
+	private int id;
+	
+	public int getId() {
+		return id;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	public Anschrift() {
+		
+	}
 
-    public int getId() {
-        return id;
-    }
+	public Anschrift(String strasse, String hausnr, String plz, String ort) {
+		super();
+		this.strasse = strasse;
+		this.hausnr = hausnr;
+		this.plz = plz;
+		this.ort = ort;
+	}
 
-    public Anschrift() {
-    }
+	public String getStrasse() {
+		return strasse;
+	}
 
-    public Anschrift(String strasse, String hausnr, String plz, String ort) {
-        super();
-        this.strasse = strasse;
-        this.hausnr = hausnr;
-        this.plz = plz;
-        this.ort = ort;
-    }
+	public void setStrasse(String strasse) {
+		this.strasse = strasse;
+	}
 
+	public String getHausnr() {
+		return hausnr;
+	}
 
-    public void setStrasse(String strasse) {
-        this.strasse = strasse;
-    }
+	public void setHausnr(String hausnr) {
+		this.hausnr = hausnr;
+	}
 
-    public void setHausnr(String hausnr) {
-        this.hausnr = hausnr;
-    }
+	public String getPlz() {
+		return plz;
+	}
 
-    public void setPlz(String plz) {
-        this.plz = plz;
-    }
+	public void setPlz(String plz) {
+		this.plz = plz;
+	}
 
-    public void setOrt(String ort) {
-        this.ort = ort;
-    }
+	public String getOrt() {
+		return ort;
+	}
 
-    public String getStrasse() {
-        return strasse;
-    }
-
-    public String getHausnr() {
-        return hausnr;
-    }
-
-    public String getPlz() {
-        return plz;
-    }
-
-    public String getOrt() {
-        return ort;
-    }
+	public void setOrt(String ort) {
+		this.ort = ort;
+	}
 }
